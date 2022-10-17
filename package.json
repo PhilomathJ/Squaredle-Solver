@@ -1,0 +1,12 @@
+{
+  "name": "squaredle-solver",
+  "version": "1.0.0",
+  "description": "A puzzle-solver for the online word game Squaredle at https://squaredle.app/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeremy Fairbanks",
+  "keywords": [squaredle, ],
+  "license": "ISC"
+}
