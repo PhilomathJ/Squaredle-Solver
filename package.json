@@ -1,12 +1,22 @@
 {
   "name": "squaredle-solver",
   "version": "1.0.0",
+  "author": "Jeremy Fairbanks",
   "description": "A puzzle-solver for the online word game Squaredle at https://squaredle.app/",
+  "license": "ISC",
+  "repository": {
+   "type": "git",
+   "url": "https://github.com/PhilomathJ/Squaredle-Solver"
+  },
+  "homepage": "https://github.com/PhilomathJ/Squaredle-Solver/blob/main/README.md",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jeremy Fairbanks",
-  "keywords": [squaredle, ],
-  "license": "ISC"
+  "keywords": [
+   "squaredle",
+   "puzzle",
+   "solver",
+   "typescript"
+]
 }
