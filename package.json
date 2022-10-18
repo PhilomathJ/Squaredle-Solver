@@ -20,6 +20,6 @@
     "squaredle",
     "puzzle",
     "solver",
-    "typescript"tsc -v
-  ],
+    "typescript"
+  ]
 }
