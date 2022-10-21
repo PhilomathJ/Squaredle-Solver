@@ -1,25 +1,58 @@
 {
-  "name": "squaredle-solver",
-  "version": "1.0.0",
-  "author": "Jeremy Fairbanks",
-  "description": "A puzzle-solver for the online word game Squaredle at https://squaredle.app/",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PhilomathJ/Squaredle-Solver"
-  },
-  "homepage": "https://github.com/PhilomathJ/Squaredle-Solver/blob/main/README.md",
-  "main": "app.js",
-  "dependencies": {
-    "typescript": "^4.8.4"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "squaredle",
-    "puzzle",
-    "solver",
-    "typescript"
-  ]
+	"name": "@philomathj/squaredle-solver",
+	"version": "1.0.0",
+	"author": "Jeremy Fairbanks <jsfairbanks@gmail.com>",
+	"description": "A puzzle-solver for the online word game Squaredle at https://squaredle.app/",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/PhilomathJ/Squaredle-Solver"
+	},
+	"homepage": "https://github.com/PhilomathJ/Squaredle-Solver/blob/main/README.md",
+	"scripts": {
+		"clean": "rm -rf ./lib && rm dist/app.mjs",
+		"build": "npm run clean && npm run build:esm && npm run build:cjs",
+		"build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/app.js lib/esm/app.mjs && cp lib/esm/app.mjs dist/app.mjs",
+		"build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+		"prepack": "npm run build",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint . --ext .ts",
+		"check": "prettier --check 'src/*.ts' 'src/*.js' src/*.html' 'src/*.css'"
+	},
+	"files": [
+		"lib/**/*"
+	],
+	"exports": {
+		".": {
+			"import": {
+				"types": "./lib/esm/types/app.d.ts",
+				"default": "./lib/esm/app.mjs"
+			},
+			"require": {
+				"types": "./lib/cjs/types/app.d.ts",
+				"default": "./lib/cjs/app.js"
+			}
+		}
+	},
+	"types": "./lib/cjs/types/app.d.ts",
+	"main": "./lib/cjs/app.js",
+	"keywords": [
+		"squaredle",
+		"puzzle",
+		"solver",
+		"typescript"
+	],
+	"dependencies": {
+		"typescript": "^4.8.4"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.2.0",
+		"@typescript-eslint/eslint-plugin": "^5.40.1",
+		"@typescript-eslint/parser": "^5.40.1",
+		"eslint": "^8.25.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"prettier": "^2.7.1",
+		"ts-jest": "^29.0.3"
+	}
 }
